@@ -1,0 +1,225 @@
+$primaryColor: #247ce8;
+$secondaryColor: #ff9f00;
+
+.nav-item {
+    font-weight: bold;
+}
+.fa-search {
+    margin: 10px;
+    cursor: pointer;
+}
+
+.btn-link:hover {
+    color: #04a83b;
+    text-decoration: none;
+    background-color: transparent;
+    border-color: transparent;
+}
+.topic:hover {
+    color: #04a83b;
+    text-decoration: none;
+    background-color: transparent;
+    border-color: transparent;
+    cursor: pointer;
+}
+.card-header {
+    padding: 0px;
+    text-align: left;
+}
+.contentHead {
+    color: #ff9f00;
+}
+p.time {
+    text-align: left;
+    margin-left: 10px;
+}
+.heroImg {
+    border-radius: 50%;
+}
+.allpad {
+    margin-left: 12%;
+    margin-right: 12%;
+}
+
+//Course Content Styling starts here
+#videoSection {
+    #contentHeading {
+        background-color: white !important;
+        box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
+        .sidebar-header {
+            background-color: white !important;
+        }
+    }
+    .topic {
+        input[type="checkbox"]:checked + label::before {
+            background-color: #04a83b !important;
+        }
+        input[type="checkbox"]:disabled + label {
+            opacity: 1;
+        }
+    }
+    #chapters {
+        background-color: white;
+    }
+    .course-tabs {
+        ul {
+            border-bottom: 1.5px solid #eee;
+        }
+    }
+}
+@media (min-width: 992px) {
+    #videoSection {
+        .sidebar {
+            // position: fixed;
+            // top: 80px;
+            bottom: 0;
+            left: 0;
+            // z-index: 1000;
+            display: block;
+            // padding: 20px;
+            /* Scrollable contents if viewport is shorter than content. */
+            background-color: white;
+            border-right: 1.5px solid #eee;
+            border-top: 1.5px solid #eee;
+            height: 100% !important;
+            #accordion {
+                overflow-x: hidden;
+                overflow-y: auto;
+                height: 95% !important;
+            }
+            h4{
+                border-bottom: 1.5px solid;
+            }
+        }
+    }
+}
+
+#pills-profile {
+    .input-group {
+        width: 100%;
+    }
+}
+
+// Menu Styling
+#desktopMenu {
+    color: white;
+    background-color: $primaryColor;
+    a {
+        h4 {
+            color: white;
+            text-decoration: none;
+        }
+    }
+    a:focus {
+        text-decoration: none;
+    }
+}
+//
+// }
+.profile-icon {
+    border: 2px solid $secondaryColor;
+    background-color: $secondaryColor;
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.2);
+    border-radius: 50px;
+    padding: 10px;
+    h4 {
+        margin: 0px;
+    }
+}
+@media (max-width: 767px) {
+    h2 {
+        font-size: 24px;
+        padding-right: 20px;
+    }
+}
+
+// Checkbox Styling
+/* Base for label styling */
+[type="checkbox"]:not(:checked),
+[type="checkbox"]:checked {
+    position: absolute;
+    left: -9999px;
+}
+[type="checkbox"]:not(:checked) + label,
+[type="checkbox"]:checked + label {
+    position: relative;
+    padding-left: 1.95em;
+    cursor: pointer;
+}
+
+// /* checkbox aspect */
+[type="checkbox"]:not(:checked) + label:before,
+[type="checkbox"]:checked + label:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1.25em;
+    height: 1.25em;
+    border: 2px solid #ccc;
+    background: #fff;
+    color: black !important;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+// /* checked mark aspect */
+[type="checkbox"]:not(:checked) + label:after,
+[type="checkbox"]:checked + label:after {
+    content: "\2714\0020";
+    position: absolute;
+    top: 0.15em;
+    left: 0.22em;
+    font-size: 1.3em;
+    line-height: 0.8;
+    color: black;
+    transition: all 0.2s;
+    font-family: "Lucida Sans Unicode", "Arial Unicode MS", Arial;
+}
+// /* checked mark aspect changes */
+[type="checkbox"]:not(:checked) + label:after {
+    opacity: 0;
+    transform: scale(0);
+}
+[type="checkbox"]:checked + label:after {
+    opacity: 1;
+    transform: scale(1);
+}
+// /* disabled checkbox */
+[type="checkbox"]:disabled:not(:checked) + label:before,
+[type="checkbox"]:disabled:checked + label:before {
+    box-shadow: none;
+    border-color: #bbb;
+    background-color: #ddd;
+}
+[type="checkbox"]:disabled:checked + label:after {
+    color: white;
+}
+[type="checkbox"]:disabled + label {
+    color: black !important;
+}
+// /* accessibility */
+[type="checkbox"]:checked:focus + label:before,
+[type="checkbox"]:not(:checked):focus + label:before {
+    border: 2px dotted blue;
+}
+
+// /* hover style just for information */
+label:hover:before {
+    border: 2px solid #4778d9 !important;
+}
+.form-check-input:disabled ~ .form-check-label {
+    color: black !important;
+}
+.fa-file-pdf {
+    color: #f15642 !important;
+}
+.fa-unlock {
+    color: #04a83b !important;
+}
+
+.sticked {
+    position: fixed !important;
+    top: 0;
+    z-index: 10;
+    border-radius: 0 0;
+}

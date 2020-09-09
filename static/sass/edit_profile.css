@@ -1,0 +1,167 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  top: 0;
+}
+
+* input[type="text"]:disabled {
+  background-color: #fff;
+}
+
+.row {
+  background-color: #fff;
+  margin-top: 20px;
+}
+
+.side-bar {
+  padding-bottom: 5%;
+}
+
+.side-bar .nav .nav-link {
+  background-color: #fff;
+  color: #446cb3;
+}
+
+.side-bar .nav .nav-link .active {
+  background-color: #95a5a6 !important;
+  color: #fff !important;
+}
+
+.side-bar .nav-link:hover {
+  background-color: #95a5a6 !important;
+  color: #fff !important;
+}
+
+.side-bar .nav-color {
+  background-color: #95a5a6 !important;
+  color: #fff !important;
+}
+
+@media screen and (min-width: 480px) {
+  .side-bar {
+    border-top: 1px solid #abb7b7;
+    border-left: 1px solid #abb7b7;
+    border-bottom: 1px solid #abb7b7;
+  }
+}
+
+.usr-pic {
+  margin: 10px auto;
+  text-align: center;
+}
+
+.usr-pic img {
+  border: 2px solid #abb7b7;
+  border-radius: 70%;
+}
+
+.usr-pic h6 {
+  text-transform: capitalize;
+  margin: 10px 2px;
+}
+
+.main-section {
+  border: 1px solid #abb7b7;
+}
+
+.main-section .heading {
+  border-bottom: 1px solid #abb7b7;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.main-section .basics-form {
+  margin: 0 auto;
+}
+
+.main-section .basics-form .content {
+  margin: 0 auto;
+}
+
+.main-section .basics-form .inner-section {
+  border-top: 1px solid #abb7b7;
+}
+
+.main-section .photo-form .img-preview-wapper {
+  border: 1px solid #95a5a6;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-bottom: 2%;
+}
+
+.main-section .photo-form .img-preview-wapper .img-preview {
+  background-color: #eeeeee;
+}
+
+.main-section .photo-form .inner-section {
+  border-top: 1px solid #abb7b7;
+}
+
+.main-section .account-form .form-control .disabled {
+  background-color: #fff;
+}
+
+.main-section .account-form .inner-section {
+  border-top: 1px solid #abb7b7;
+}
+
+.main-section .payment-form .inner-section {
+  border-top: 1px solid #abb7b7;
+}
+
+.main-section .payment-form .content-payment {
+  padding: 1% 1%;
+  border: 1px solid #abb7b7;
+}
+
+.main-section .privacy-form .content-privacy {
+  padding: 1% 1%;
+  border: 1px solid #abb7b7;
+}
+
+.main-section .privacy-form .inner-section {
+  border-top: 1px solid #abb7b7;
+}
+
+.main-section .notification-form .content-notification .form-check {
+  padding: 0% 10%;
+  border: 1px solid #abb7b7;
+}
+
+.main-section .notification-form .content-notification .inner-section {
+  border-top: 1px solid #abb7b7;
+}
+
+.main-section .notification-form .inner-section {
+  border-top: 1px solid #abb7b7;
+}
+
+.basics-form p {
+  color: #446cb3;
+  font-size: 0.7em;
+}
+
+.jumbotron {
+  background-color: #34495e !important;
+  color: #fff !important;
+}
+
+.container .profile-pic img {
+  border: 2px solid #abb7b7;
+  border-radius: 70%;
+}
+
+.courses-tab {
+  background-color: #eeeeee;
+}
+
+.profile-button {
+  background-color: #247CE8 !important;
+  color: white !important;
+}
+
+.tab-pane {
+  padding-top: 20px;
+}
+/*# sourceMappingURL=edit_profile.css.map */

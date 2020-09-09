@@ -1,0 +1,85 @@
+@mixin lightShadow {
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+    //   Light shadow, used for navigation
+}
+@mixin sectionPadding {
+    padding-left: 5% !important;
+    padding-right: 5% !important;
+}
+
+$siteBlue: #247ce8;
+// Mobile menu styling
+.mobile-menu-height {
+    height: 70px !important; 
+    padding-top: 0px !important;
+    .navbar-collapse {
+        background-color: white;
+        // margin-top: -10px;
+        @include lightShadow();
+    }
+}
+
+#mobileMenu {
+    top:47px;
+    @include sectionPadding();
+    @include lightShadow();
+        background-color: $siteBlue !important;
+    img {
+        width: 160px;
+    }
+    .dropdown-menu{
+        transition: all 300ms ease-in-out;
+        background-color: $siteBlue;
+        li{
+            a{
+                color: white;
+            }
+        }
+    }
+    .fa-bars {
+        color: white;
+    }
+    .fa-search {
+        color: $siteBlue;
+    }
+    input {
+        border: 1px solid white;
+    }
+    .input-group-text {
+        border: 1px solid white;
+    }
+    a {
+        color: black;
+        text-transform: uppercase !important;
+        font-weight: 500 !important;
+        font-size: 16px;
+    }
+    // Slide Menu
+    @media(max-width: 992px){
+        .navbar-collapse {
+            position: fixed;
+            top: 100px;
+            left: 0;
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-bottom: 15px;
+            width: 75%;
+            height: 100%;
+            .collapsing {
+                left: -75%;
+                transition: height 0s ease;
+            }
+            .show {
+                left: 0;
+                transition: left 300ms ease-in-out;
+            }
+        }
+        .navbar-toggler{
+            .collapsed{
+                ~ .navbar-collapse {
+                    transition: left 500ms ease-in-out;
+                }
+            }
+        }
+    }
+}

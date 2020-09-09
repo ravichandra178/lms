@@ -1,0 +1,739 @@
+// font-family: 'Arimo', sans-serif;
+// font-family: 'PT Sans', sans-serif;
+
+// General Styling
+/* General Font Set  */
+$headingfont: "Mulish", sans-serif;
+$generalfont: "Sora", sans-serif;
+$highLightColor: #247ce8;
+$secondarycolor: #ff9f00;
+@font-face {
+  font-family: "generalFontRegular";
+  src: url("fonts/GeneralFont/Arimo-Regular.ttf");
+}
+@font-face {
+  font-family: "generalFontItalic";
+  src: url("fonts/GeneralFont/Arimo-Italic.ttf");
+}
+@font-face {
+  font-family: "generalFontBold";
+  src: url("fonts/GeneralFont/Arimo-Bold.ttf");
+}
+@font-face {
+  font-family: "generalFontBoldItalic";
+  src: url("fonts/GeneralFont/Arimo-BoldItalic.ttf");
+}
+/* Heading Font Set  */
+@font-face {
+  font-family: "headingFont";
+  src: url("fonts/HeadingFont/PTSans-Regular.ttf");
+}
+@font-face {
+  font-family: "headingFontItalic";
+  src: url("fonts/HeadingFont/PTSans-Italic.ttf");
+}
+@font-face {
+  font-family: "headingFontBold";
+  src: url("fonts/HeadingFont/PTSans-Bold.ttf");
+}
+@font-face {
+  font-family: "headingFontBoldItalic";
+  src: url("fonts/HeadingFont/PTSans-BoldItalic.ttf");
+}
+
+@media (max-width: 768px) {
+  body {
+    h1 {
+      font-size: 34px !important;
+      font-family: "headingFontBold", Fallback, sans-serif !important;
+    }
+    h2 {
+      font-size: 32px !important;
+      font-family: "headingFontBold", Fallback, sans-serif !important;
+      color: $highLightColor;
+    }
+    h3 {
+      font-size: 30px !important;
+      font-family: "headingFontBold", Fallback, sans-serif !important;
+    }
+    h4 {
+      font-size: 26px !important;
+      font-family: "headingFontBold", Fallback, sans-serif !important;
+      color: $highLightColor;
+    }
+    h5 {
+      font-size: 24px !important;
+      font-family: "headingFontBold", Fallback, sans-serif !important;
+      color: $highLightColor;
+    }
+    h6 {
+      font-size: 22px !important;
+      font-family: "headingFontBold", Fallback, sans-serif !important;
+      font-weight: 700;
+    }
+    p {
+      font-family: "generalFontRegular", Fallback, sans-serif !important;
+      font-size: 16px !important;
+    }
+    button {
+      font-family: "generalFontRegular", Fallback, sans-serif !important;
+      font-size: 16px !important;
+    }
+  }
+}
+body {
+  .card {
+    ul {
+      padding-left: 30px !important;
+    }
+  }
+  h2 {
+    font-family: "headingFontBold", Fallback, sans-serif !important;
+    font-size: 38px !important;
+    color: $highLightColor;
+  }
+  h1 {
+    font-family: "headingFontBold", Fallback, sans-serif !important;
+    font-size: 42px !important;
+    // text-transform: uppercase;
+  }
+  h6 {
+    font-family: "headingFont", Fallback, sans-serif !important;
+    font-size: 20px !important;
+    font-weight: 400 !important;
+  }
+  h3 {
+    color: black;
+    font-family: "headingFontBold", Fallback, sans-serif !important;
+    font-size: 34px !important;
+    font-weight: 600 !important;
+    // text-transform: uppercase;
+  }
+  h4 {
+    font-family: "headingFontBold", Fallback, sans-serif !important;
+    font-size: 28px !important;
+    font-weight: 500 !important;
+    color: $highLightColor;
+  }
+  h5 {
+    font-family: "headingFontBold", Fallback, sans-serif !important;
+    font-size: 24px !important;
+    font-weight: 500 !important;
+    color: $highLightColor;
+  }
+  li {
+    font-family: "generalFontRegular", Fallback, sans-serif !important;
+    font-size: 16px !important;
+  }
+  button {
+    font-family: "generalFontRegular", Fallback, sans-serif !important;
+    font-size: 16px !important;
+  }
+}
+nav {
+  a {
+    font-family: "generalFontRegular", Fallback, sans-serif !important;
+    font-size: 16px !important;
+  }
+}
+p {
+  font-family: "generalFontRegular", Fallback, sans-serif !important;
+  font-size: 16px !important;
+  color: black;
+}
+td {
+  font-family: "generalFontRegular", Fallback, sans-serif !important;
+  font-size: 16px !important;
+}
+th {
+  font-family: "generalFontRegular", Fallback, sans-serif !important;
+  font-size: 16px !important;
+}
+// General Typography Ends Here
+
+@mixin lightShadow() {
+  box-shadow: 0px 0px 18px rgba(0, 0, 0, 0.4);
+}
+html,
+body {
+  scroll-behavior: smooth;
+  scroll-padding-top: 220px;
+  max-width: 100%;
+  overflow-x: hidden;
+  font-family: "Montserrat", sans-serif;
+}
+
+#introSection {
+  background-color: #d4d4d4;
+  background-image: linear-gradient(0deg, #d4d4d4 0%, #eaeaea 100%);
+}
+#drop {
+  padding-bottom: 50px;
+}
+@media (max-width: 991px) {
+  #drop {
+    display: none;
+  }
+}
+@media (min-width: 992px) {
+  #mobileFilterBtn {
+    display: none;
+  }
+}
+.taball {
+  padding-left: 120px;
+}
+
+.fa-star {
+  color: #ff9f00;
+}
+$breakpoint-tablet: 767px;
+
+#basic-addon2 {
+  background-color: $secondarycolor;
+  color: white;
+  font-weight: 600;
+}
+.serchHead {
+  color: $highLightColor;
+  font-family: $headingfont;
+  font-weight: bolder;
+}
+.tabName {
+  font-weight: bold;
+  font-family: $headingfont;
+  font-size: 25px;
+}
+
+.nav-tabs .nav-item.show .nav-link,
+.nav-tabs .nav-link.active {
+  color: #ff9f00;
+  background-color: #fff;
+  border-color: #000000 #000000 #fff;
+}
+
+@media (max-width: $breakpoint-tablet) {
+  .hs-course {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(6, calc(90% - 40px));
+    grid-template-rows: minmax(150px, 1fr);
+    overflow-x: scroll;
+  }
+  #carouselControls {
+    display: none !important;
+  }
+  #carouselControls1 {
+    display: none !important;
+  }
+  #carouselControls2 {
+    display: none !important;
+  }
+  #carouselControls3 {
+    display: none !important;
+  }
+  #carouselControls4 {
+    display: none !important;
+  }
+  #carouselControls5 {
+    display: none !important;
+  }
+  #carouselControls6 {
+    display: none !important;
+  }
+  #carouselControls7 {
+    display: none !important;
+  }
+  #carouselControls8 {
+    display: none !important;
+  }
+  #carouselControls9 {
+    display: none !important;
+  }
+  #carouselControls10 {
+    display: none !important;
+  }
+  #carouselControls11 {
+    display: none !important;
+  }
+  #carouselControls12 {
+    display: none !important;
+  }
+}
+
+// another header and footer css
+
+.main-menu {
+  padding-left: 5% !important;
+  padding-right: 5% !important;
+  -webkit-box-shadow: gainsboro 0px 2px 10px;
+  box-shadow: gainsboro 0px 2px 10px;
+  background-color: #247ce8 !important;
+}
+.main-menu a {
+  color: white !important;
+  text-transform: uppercase !important;
+  font-weight: 600 !important;
+  font-size: 16px;
+  font-family: "Montserrat", sans-serif;
+}
+
+.foothead {
+  color: white;
+  font-size: 22px;
+
+  font-weight: bold;
+}
+
+.mysearch {
+  width: 400px !important;
+}
+
+.main-menu .login-btn {
+  background-color: transparent;
+  border: 2px solid white;
+  color: white;
+  font-size: 12px;
+}
+.main-menu .login-btn:hover {
+  background-color: white;
+  border: 2px solid white;
+  color: black;
+}
+
+.main-menu button {
+  text-transform: uppercase !important;
+  font-weight: 600 !important;
+  font-size: 16px;
+  font-family: "Montserrat", sans-serif;
+}
+.mainhead {
+  font-size: 15px !important;
+}
+.mainsmall {
+  font-size: 10px !important;
+}
+
+.fa-search {
+  cursor: pointer;
+}
+
+.lifoot li {
+  list-style-type: none;
+  color: white;
+  font-size: 20px;
+}
+.footlogo {
+  background-color: white;
+  border-radius: 5px;
+  padding: 15px;
+}
+
+.footer {
+  margin-top: 150px;
+}
+.copy {
+  color: white;
+  font-size: 20px;
+}
+
+.fa-facebook {
+  color: white;
+}
+.fa-twitter {
+  color: white;
+  margin-left: 20px;
+}
+.fa-linkedin {
+  color: white;
+  margin-left: 20px;
+}
+.fa-youtube {
+  color: white;
+  margin-left: 20px;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black !important;
+  padding: 12px 16px;
+  font-size: 12px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.mainhead {
+  font-size: 28px !important;
+}
+
+.mainsmall {
+  font-size: 22px !important;
+}
+
+.dropdown-submenu {
+  position: relative;
+}
+
+.dropdown-submenu a {
+  color: black !important;
+  text-transform: capitalize !important;
+  font-size: 14px !important;
+}
+
+.dropdown-item a {
+  color: black !important;
+  text-transform: capitalize !important;
+  font-size: 14px !important;
+}
+
+.dropdown-submenu > .dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  -webkit-border-radius: 0 6px 6px 6px;
+  -moz-border-radius: 0 6px 6px;
+  border-radius: 0 6px 6px 6px;
+}
+
+.dropdown-submenu:hover > .dropdown-menu {
+  display: block;
+}
+
+.dropdown-submenu > a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #ccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+
+.dropdown-submenu:hover > a:after {
+  border-left-color: #fff;
+}
+
+.dropdown-submenu.pull-left {
+  float: none;
+}
+
+.dropdown-submenu.pull-left > .dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  -webkit-border-radius: 6px 0 6px 6px;
+  -moz-border-radius: 6px 0 6px 6px;
+  border-radius: 6px 0 6px 6px;
+}
+
+.student {
+  margin-top: 50px;
+  padding-bottom: 50px;
+
+  background-color: #247ce8;
+}
+
+@media (min-width: 768px) {
+  .hs-course {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(6, calc(40% - 40px));
+    grid-template-rows: minmax(150px, 1fr);
+    overflow-x: scroll;
+  }
+  #carouselControlsMobile {
+    display: none !important;
+  }
+
+  #carouselControls1Mobile {
+    display: none !important;
+  }
+  #carouselControls2Mobile {
+    display: none !important;
+  }
+  #carouselControls3Mobile {
+    display: none !important;
+  }
+  #carouselControls4Mobile {
+    display: none !important;
+  }
+  #carouselControls5Mobile {
+    display: none !important;
+  }
+  #carouselControls6Mobile {
+    display: none !important;
+  }
+  #carouselControls7Mobile {
+    display: none !important;
+  }
+  #carouselControls8Mobile {
+    display: none !important;
+  }
+  #carouselControls9Mobile {
+    display: none !important;
+  }
+  #carouselControls10Mobile {
+    display: none !important;
+  }
+  #carouselControls11Mobile {
+    display: none !important;
+  }
+  #carouselControls12Mobile {
+    display: none !important;
+  }
+
+  .head-all {
+    padding-left: 2% !important;
+    padding-right: 2% !important;
+  }
+
+  .mainhead {
+    font-size: 15px !important;
+  }
+  .mainsmall {
+    font-size: 10px !important;
+  }
+
+  .lifoot li {
+    list-style-type: none;
+    color: white;
+    font-size: 18px;
+  }
+
+  .smallhead-2 {
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    h1 {
+      font-size: 34px !important;
+    }
+    h2 {
+      font-size: 32px !important;
+      color: $highLightColor;
+    }
+    h3 {
+      font-size: 30px !important;
+    }
+    h4 {
+      font-size: 26px !important;
+      color: $secondarycolor;
+    }
+    h5 {
+      font-size: 20px !important;
+      color: $highLightColor;
+    }
+    h6 {
+      font-size: 18px !important;
+      font-weight: 700;
+    }
+    p {
+      font-size: 16px !important;
+    }
+  }
+  .taball {
+    padding-left: 0px;
+  }
+
+  .mysearch {
+    width: 200px !important;
+  }
+}
+
+body {
+  .card {
+    ul {
+      padding-left: 30px !important;
+    }
+  }
+  h2 {
+    font-family: $headingfont;
+    font-weight: 800;
+    // text-transform: uppercase;
+    font-size: 34px;
+    color: $highLightColor;
+  }
+  h1 {
+    font-family: $headingfont;
+    font-weight: 600;
+    font-size: 38px;
+    // text-transform: uppercase;
+  }
+  h6 {
+    font-family: $headingfont;
+    font-weight: 500;
+    font-size: 18px;
+  }
+  h3 {
+    font-family: $headingfont;
+    color: black;
+    font-weight: 600;
+    font-size: 36px;
+    // text-transform: uppercase;
+  }
+  h4 {
+    font-family: $headingfont;
+    font-weight: 600;
+    // text-transform: uppercase;
+    font-size: 32px;
+    color: $secondarycolor;
+  }
+  h5 {
+    font-family: $headingfont;
+    font-weight: 500;
+    font-size: 20px;
+  }
+  li {
+    font-size: 16px;
+    font-family: $generalfont;
+  }
+}
+nav {
+  a {
+    font-size: 16px;
+    font-family: $generalfont;
+  }
+}
+p {
+  font-size: 16px;
+  font-family: $generalfont;
+  color: black;
+}
+
+//Trending Certifications Styling Starts Here
+#trendingCertification {
+  // Hover CSS
+  .project-card {
+    border-radius: 10px !important;
+  }
+  .overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: 0.5s ease;
+    background-color: rgb(7, 103, 247);
+    z-index: 9999 !important;
+  }
+
+  .card:hover .overlay {
+    opacity: 1;
+  }
+  .text {
+    color: white !important;
+    font-size: 20px;
+    position: absolute;
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 100%;
+    p {
+      color: white;
+    }
+    hr {
+      border-top: 2px solid white;
+    }
+    .view-details-btn {
+      width: 100% !important;
+      background-color: transparent;
+      border: 2px solid white;
+      color: white;
+    }
+    // top: 50%;
+    // left: 50%;
+    // -webkit-transform: translate(-50%, -50%);
+    // -ms-transform: translate(-50%, -50%);
+    // transform: translate(-50%, -50%);
+    // text-align: center;
+  }
+  // Hover css ends here
+
+  .card-header {
+    height: 180px;
+    color: white;
+  }
+  h5 {
+    font-size: 20px;
+  }
+  .card {
+    @include lightShadow();
+  }
+  .card-body {
+    background-color: #fafafa;
+  }
+  .cert1 {
+    .card-header {
+      background-color: #a18cd1 !important;
+    }
+  }
+  .cert2 {
+    .card-header {
+      background-color: #5e98f9 !important;
+    }
+  }
+  .cert3 {
+    .card-header {
+      background-color: #d299c2 !important;
+    }
+  }
+  .cert4 {
+    .card-header {
+      background-color: #1cb8da !important;
+    }
+  }
+}
+
+.fa-chevron-circle-left {
+  color: white !important;
+  font-size: 40px;
+  text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.4);
+  margin-bottom: 40px;
+}
+.fa-chevron-circle-right {
+  color: white !important;
+  font-size: 40px;
+  text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.4);
+  margin-bottom: 40px;
+}
+
+/* Mobile menu styling  */
+
+// UI Polishing
+#introSection {
+  button {
+    background-color: #247ce8;
+    color: white;
+  }
+}

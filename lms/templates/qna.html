@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Questions and Answers</title>
+
+<link rel="stylesheet" href="{% static 'style.css' %}">
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+  integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+  integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+<link
+  href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400;0,700;1,400;1,700&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+  rel="stylesheet">
+  
+{% endblock %}
+
+
+
+{% block content %}
+
+<section>
+  <div class="container">
+<h5 class="text-center m-4">{{course_title}}</h5>
+<div class="row mt-5 ml-2">
+          <div class="col-md-12">
+            <h6 class="mb-3">{{questions.count}} questions in {{course_title}}
+            </h6>
+            <hr>
+            <!-- Questions  -->
+            {% for i in questions %}
+            <div class="row mt-2 no-gutters">
+              <div class="col-md-1">
+                <img class="heroImg" src="{{i.user.display_pic.url}}" width="50px">
+              </div>
+              <div class="col-md-8">
+                <h6> {{i.question}}</h6>
+                <p>{{i.user}} · {{i.created_at}}</p>
+                {% for j in i.answers.all %}
+                <p> <img class="heroImg" src="{{j.user.display_pic.url}}" width="50px"> &nbsp;&nbsp;{{j.answer}}
+                </p>
+
+                <p>{{j.user}} · {{j.created_at}}</p>
+                {% endfor %}
+
+              </div>
+              <div class="col-md-3">
+                <a href="#" data-toggle="modal" data-target="#answerFormModal{{i.pk}}">Answer this question</a>
+              </div>
+            </div>
+              <div class="modal fade" id="answerFormModal{{i.pk}}" tabindex="-1" role="dialog" aria-labelledby="answerFormModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-center" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="answerFormModalLabel">
+                        {{i.question}}
+                      </h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <form action="{% url 'lms:answer' course i.pk %}" method="post" >
+                        <div class="form-group">
+                          {% csrf_token %}
+                          {% include 'bs4_form_label.html' with form=aform %}
+                    </div>
+                    <div class="modal-footer">
+                      <input class="btn btn-primary" type="submit" value="Submit">
+                    </div>
+                  </form>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+            {% endfor %}
+
+
+           
+          </div>
+        </div>
+      </div>
+        </section>
+        {% endblock %}

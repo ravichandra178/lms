@@ -1,0 +1,241 @@
+.nav-item {
+  font-weight: bold;
+}
+
+.fa-search {
+  margin: 10px;
+  cursor: pointer;
+}
+
+.btn-link:hover {
+  color: #04a83b;
+  text-decoration: none;
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.topic:hover {
+  color: #04a83b;
+  text-decoration: none;
+  background-color: transparent;
+  border-color: transparent;
+  cursor: pointer;
+}
+
+.card-header {
+  padding: 0px;
+  text-align: left;
+}
+
+.contentHead {
+  color: #ff9f00;
+}
+
+p.time {
+  text-align: left;
+  margin-left: 10px;
+}
+
+.heroImg {
+  border-radius: 50%;
+}
+
+.allpad {
+  margin-left: 12%;
+  margin-right: 12%;
+}
+
+#videoSection #contentHeading {
+  background-color: white !important;
+  -webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
+}
+
+#videoSection #contentHeading .sidebar-header {
+  background-color: white !important;
+}
+
+#videoSection .topic input[type="checkbox"]:checked + label::before {
+  background-color: #04a83b !important;
+}
+
+#videoSection .topic input[type="checkbox"]:disabled + label {
+  opacity: 1;
+}
+
+#videoSection #chapters {
+  background-color: white;
+}
+
+#videoSection .course-tabs ul {
+  border-bottom: 1.5px solid #eee;
+}
+
+@media (min-width: 992px) {
+  #videoSection .sidebar {
+    position: fixed;
+    top: 180px;
+    bottom: 0;
+    left: 0;
+    display: block;
+    /* Scrollable contents if viewport is shorter than content. */
+    background-color: white;
+    border-right: 1.5px solid #eee;
+    border-top: 1.5px solid #eee;
+    height: 70%;
+  }
+  #videoSection .sidebar #accordion {
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: 95% !important;
+  }
+  #videoSection .sidebar h4 {
+    border-bottom: 1.5px solid;
+  }
+}
+
+#pills-profile .input-group {
+  width: 100%;
+}
+
+#desktopMenu {
+  color: white;
+  background-color: #247ce8;
+}
+
+#desktopMenu a h4 {
+  color: white;
+  text-decoration: none;
+}
+
+#desktopMenu a:focus {
+  text-decoration: none;
+}
+
+/* Base for label styling */
+[type="checkbox"]:not(:checked),
+[type="checkbox"]:checked {
+  position: absolute;
+  left: -9999px;
+}
+
+[type="checkbox"]:not(:checked) + label,
+[type="checkbox"]:checked + label {
+  position: relative;
+  padding-left: 1.95em;
+  cursor: pointer;
+}
+
+[type="checkbox"]:not(:checked) + label:before,
+[type="checkbox"]:checked + label:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1.25em;
+  height: 1.25em;
+  border: 2px solid #ccc;
+  background: #fff;
+  color: black !important;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+          box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+[type="checkbox"]:not(:checked) + label:after,
+[type="checkbox"]:checked + label:after {
+  content: "\2714\0020";
+  position: absolute;
+  top: 0.15em;
+  left: 0.22em;
+  font-size: 1.3em;
+  line-height: 0.8;
+  color: black;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  font-family: "Lucida Sans Unicode", "Arial Unicode MS", Arial;
+}
+
+[type="checkbox"]:not(:checked) + label:after {
+  opacity: 0;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+}
+
+[type="checkbox"]:checked + label:after {
+  opacity: 1;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
+[type="checkbox"]:disabled:not(:checked) + label:before,
+[type="checkbox"]:disabled:checked + label:before {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  border-color: #bbb;
+  background-color: #ddd;
+}
+
+[type="checkbox"]:disabled:checked + label:after {
+  color: white;
+}
+
+[type="checkbox"]:disabled + label {
+  color: black !important;
+}
+
+[type="checkbox"]:checked:focus + label:before,
+[type="checkbox"]:not(:checked):focus + label:before {
+  border: 2px dotted blue;
+}
+
+label:hover:before {
+  border: 2px solid #4778d9 !important;
+}
+
+.form-check-input:disabled ~ .form-check-label {
+  color: black !important;
+}
+
+.fa-file-pdf {
+  color: #f15642 !important;
+}
+
+.fa-unlock {
+  color: #04a83b !important;
+}
+
+.sticked {
+  position: fixed !important;
+  top: 0;
+  z-index: 10;
+  border-radius: 0 0;
+}
+
+.embed-responsive {
+  -webkit-transition: all 1.3s ease-in-out !important;
+  transition: all 1.3s ease-in-out !important;
+  -webkit-transform: rotate3d(0, 0, 0, 0deg);
+          transform: rotate3d(0, 0, 0, 0deg);
+}
+
+.video-enable {
+  display: block !important;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+#desktopProfile .dropdown-menu {
+  position: absolute;
+  right: 0 !important;
+  left: auto !important;
+}
+
+.mysearch {
+  height: 42px;
+}
+
+span#basic-addon1 {
+  height: 42px !important;
+}
+/*# sourceMappingURL=reg-course-style.css.map */

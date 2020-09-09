@@ -1,0 +1,414 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+
+
+{% block content %}
+
+<!-- Landing Section  -->
+<section id="pageLanding">
+  <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel" data-interval="false">
+    <ol class="carousel-indicators">
+      <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+      <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <div class="row no-gutters align-items-center">
+          <div class="col-md-6 p-md-2">
+
+            <div class="embed-responsive embed-responsive-16by9">
+              <iframe height="100%" width="100%" class="embed-responsive-item"
+                src="https://www.youtube.com/embed/8N5rRU6JjFY?enablejsapi=1" allowfullscreen
+                id="sliderVideo1"></iframe>
+            </div>
+
+          </div>
+          <div class="col-md-6 text-right">
+
+            <img src="{% static 'img/slider.jpg' %}" class="img-fluid" alt="Responsive image">
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="row no-gutters">
+          <div class="col-md-6  p-md-2">
+
+            <div class="embed-responsive embed-responsive-16by9">
+              <iframe height="100%" width="100%" class="embed-responsive-item"
+                src="https://www.youtube.com/embed/8N5rRU6JjFY?enablejsapi=1" allowfullscreen
+                id="sliderVideo2"></iframe>
+            </div>
+
+          </div>
+          <div class="col-md-6 text-right">
+
+            <img src="{% static 'img/slider.jpg' %}" class="img-fluid" alt="Responsive image">
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="row no-gutters">
+          <div class="col-md-6 p-md-2">
+
+            <div class="embed-responsive embed-responsive-16by9">
+              <iframe height="100%" width="100%" class="embed-responsive-item"
+                src="https://www.youtube.com/embed/8N5rRU6JjFY" allowfullscreen></iframe>
+            </div>
+
+          </div>
+          <div class="col-md-6 text-right">
+
+            <img src="{% static 'img/slider.jpg' %}" class="img-fluid" alt="Responsive image">
+          </div>
+        </div>
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</section>
+
+<!-- About Us Section  -->
+<section class="bluebg">
+  <div class="container">
+    <div class="row">
+      <div class="col pb-5 text-center mt-5">
+        <h2 class="headcolor01">We’ve best teachers in every subject</h2>
+        <p class="allpar">Lorem ipsum gravida nibh vel velit auctor aliquetnean sollicitudin, lorem quis bibendum auci
+          elit consequat is simply free text available in the psutis sem nibh id eis sed odio sit amet.Lorem ipsum
+          gravida nibh vel velit auctor aliquetnean sollicitudin, lorem quis bibendum auci elit consequat is simply
+          free text available in the psutis sem nibh id eis sed odio sit amet.</p>
+        <p class="allpar">Lorem ipsum gravida nibh vel velit auctor aliquetnean sollicitudin, lorem quis bibendum auci
+          elit consequat is simply free text available in the psutis sem nibh id eis sed odio sit amet.Lorem ipsum
+          gravida nibh vel velit auctor aliquetnean sollicitudin, lorem quis bibendum auci elit consequat is simply
+          free text available in the psutis sem nibh id eis sed odio sit amet.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Popular Courses  -->
+<section class="container-fluid" id="trendingCertification">
+
+
+  <center class="mt-5 mb-3">
+    <h2 class="text-uppercase headcolor">Popular Courses</h2>
+  </center>
+  <div class="container justify-content-center" id="popularCourses">
+    <div class="row justify-content-center">
+      <ul class="nav nav-pills mb-5 hrline" id="pills-tab" role="tablist">
+        {% for i in category|slice:":4" %}
+        <li class="nav-item">
+          {% if i.id == 1 %}
+          <a class="nav-link active" id="pills-{{i.id}}-tab" data-toggle="pill" href="#pills-{{i.id}}" role="tab"
+            aria-controls="pills-{{i.id}}" aria-selected="true">{{i.category}}</a>
+          {% else %}
+          <a class="nav-link slide-fn-trigger" id="pills-{{i.id}}-tab" data-toggle="pill" href="#pills-{{i.id}}"
+            role="tab" aria-controls="pills-{{i.id}}" aria-selected="true">{{i.category}}</a>
+          {% endif %}
+        </li>
+        {% endfor %}
+      </ul>
+      <div class="col-12 tab-content" id="pills-tabContent">
+        {% for i in category %}
+        {% if i.id == 1 %}
+        <div class="tab-pane fade show active" id="pills-{{i.id}}" role="tabpanel" aria-labelledby="#pills-{{i.id}}">
+
+          {% else %}
+          <div class="tab-pane fade" id="pills-{{i.id}}" role="tabpanel" aria-labelledby="#pills-{{i.id}}">
+
+            {% endif %}
+
+            <!-- Owl Carousel  -->
+            <div class="row">
+              <div class="owl-carousel owl-theme px-3 px-md-4 px-lg-5">
+                {% for j in i.course_set.all|slice:":8" %}
+
+                <div class="card sh mx-3 mx-md-2 item">
+                  <img class="card-img-top" src="{{j.img293x274.url}}" alt="Card image cap">
+                  <div class="card-body">
+                    <h5 class="card-title">{{j.title}}</h5>
+                    <p class="card-text">Reviews</p>
+                    {% with ''|center:j.reviews as range %}
+                    {% for _ in range %}
+                    <span class="fa fa-star checked"></span>
+                    {% endfor %}
+                    {% endwith %}
+                    <span>{{j.reviews}} ({{j.enrolled}})</span>
+
+                  </div>
+                  <div class="overlay card pt-3 justify-content-center mx-auto">
+                    <div class="text">
+                      <h6>{{j.title}}</h6>
+                      <hr>
+                      <p>Duration:<br>{{j.duration}}</p>
+                      <p>Key Skills: <br>{{j.tags}}</p>
+
+                      <a href="{% url 'lms:coursedetail' j.slug %}"><span class="viewCourse">View Details</span></a>
+
+                    </div>
+                  </div>
+                </div>
+                {% endfor %}
+              </div>
+
+            </div>
+
+          </div>
+          {% endfor %}
+
+
+        </div>
+      </div>
+    </div>
+</section>
+
+<!-- Highlights  -->
+<section class="container  mt-5 mb-5">
+  <hr class="mt-3 mb-5" style="color: black">
+  <div class="row text-center">
+    <div class="col-md-1"><img class="m-3 img-fluid" src="{% static 'img/time01.png' %}"></div>
+    <div class="col-md-3">
+      <h5 class="smallhead-2">Go at your own pace</h5>
+      <p class="par03">Enjoy lifetime access to courses on skill AP website</p>
+    </div>
+    <div class="col-md-1"><img class="m-3 img-fluid" src="{% static 'img/learn01.png' %}"></div>
+    <div class="col-md-3">
+      <h5 class="smallhead-2">Learn from industry experts</h5>
+      <p class="par03">Select from top instructors around the world</p>
+    </div>
+    <div class="col-md-1"><img class="m-3 img-fluid" src="{% static 'img/play.png' %}"></div>
+    <div class="col-md-3">
+      <h5 class="smallhead-2">Find video courses on almost any topic</h5>
+      <p class="par03">Build your library for your career and personal growth</p>
+    </div>
+  </div>
+
+  <hr class="mt-3 mb-3" style="color: black">
+</section>
+
+<!--STUDENTS ARE VIEWING-->
+<section class="container" id="trendingCertification">
+  <div class="row">
+    <div class="container">
+      <center class="mb-5">
+        <h2 class="text-uppercase headcolor">Trending Courses</h2>
+      </center>
+    </div>
+  </div>
+
+  <!--<div class="row">
+    {% for i in category|slice:"1" %}
+    {% for k in i.trending_courses %}
+
+    <div class="col-12 col-md-3">
+
+      <div class="card sh">
+        <img class="card-img-top" src="{{k.img293x274.url}}" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{k.title}}</h5>
+          <p class="card-text">Reviews</p>
+          {% with ''|center:k.reviews as range %}
+          {% for _ in range %}
+          <span class="fa fa-star checked"></span>
+          {% endfor %}
+          {% endwith %}
+          <span>{{k.reviews}} ({{k.enrolled}})</span>
+        </div>
+        <div class="overlay card pt-3 justify-content-center mx-auto">
+          <div class="text">
+            <h6>{{k.title}}</h6>
+            <hr>
+            <p>Duration:<br>{{k.duration}}</p>
+            <p>Key Skills: <br>{{k.tags}}</p>
+            <button class="btn view-details-btn mx-auto text-center">
+              View Details
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+    {% endfor %}
+
+  </div>-->
+  <div class="row">
+    <div class="owl-carousel owl-theme px-3 px-md-4 px-lg-5">
+      {% for i in category|slice:"1" %}
+      {% for j in i.trending_courses %}
+
+      <div class="card sh mx-3 mx-md-2 item">
+        <img class="card-img-top" src="{{j.img293x274.url}}" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{j.title}}</h5>
+          <p class="card-text">Reviews</p>
+          {% with ''|center:j.reviews as range %}
+          {% for _ in range %}
+          <span class="fa fa-star checked"></span>
+          {% endfor %}
+          {% endwith %}
+          <span>{{j.reviews}} ({{j.enrolled}})</span>
+
+        </div>
+        <div class="overlay card pt-3 justify-content-center mx-auto">
+          <div class="text">
+            <h6>{{j.title}}</h6>
+            <hr>
+            <p>Duration:<br>{{j.duration}}</p>
+            <p>Key Skills: <br>{{j.tags}}</p>
+
+            <a href="{% url 'lms:coursedetail' j.slug %}"><span class="viewCourse">View Details</span></a>
+
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+      {% endfor %}
+    </div>
+
+  </div>
+
+</section>
+
+
+<!--ONLINE EDUCATION-->
+<section class="mt-1 mt-md-2 container-fluid">
+  <div class="mt-1 mt-md-2 mb-5 mb-md-5">
+    <div class="row onlineborder align-items-center">
+
+      <div class="col-12 col-md-8 text-center">
+        <h2 class="text-uppercase headcolor onlinetext">Online Education</h2><br>
+        <h3 class="onlinetext01" style="color: #247ce8">Start Learning
+          From Our Experts</h3><br>
+        <p class="allpar01">Lorem ipsum gravida nibh vel velit auctor aliquetnean sollicitudin, lorem quis bibendum
+          auci elit consequat is simply free text available in the psutis sem nibhsd fsdsfssdf id eis sed odio sit
+          amet.Lorem ipsum gravida nibh vel velit auctor aliquetnean sollicitudin</p>
+      </div>
+
+      <div class="col-12 col-md-4 d-none d-md-block"><img src="{% static 'img/online002.png' %}"
+          class="img-fluid onlineimage" alt="Responsive image"></div>
+    </div>
+  </div>
+</section>
+
+
+<!---Top categories-->
+
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col pb-1 pb-md-3 text-center mt-1 mt-md-3">
+        <h2 class="text-uppercase headcolor">Top categories</h2>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row text-center">
+      {% for i in category|slice:"3" %}
+
+      <div class="col-md-4">
+        <img src="{{i.img380x256.url}}" class="img-fluid mt-5" alt="Responsive image"><br>
+        <center>
+          <h5 class="mt-3 smallhead">{{i.category}}</h5>
+        </center>
+      </div>
+
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!--WHAT OUR STUDENTS SAY-->
+
+<section class="container-fluid student">
+  <div class="container">
+    <div class="row">
+      <div class="col pb-3 text-center mt-5">
+        <h2 class="text-uppercase headcolor02">What Our Students Say</h2>
+      </div>
+    </div>
+
+    <div class="row align-items-center">
+      <div class="col-md-5">
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe width="424" height="238" src="https://www.youtube.com/embed/8N5rRU6JjFY" frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+      <div class="col-md-7">
+        <p class="par">I have attended workshop on IOT fundamentals which wasorganized by APSSDC. Before I attended the
+          workshop, I had limited knowledge on Internet of Things. Through this workshop Icame to know all about IOT,
+          Programming, and how to develop an Arduino. APSSDC mentors explained each and every module well</p>
+        <p class="par01">K.L.Swathi </p>
+        <p class="par02">(KSRM College of Engineering)</p>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<section>
+  <h2 class="text-uppercase headcolor mb-2 mb-md-3 mt-5  text-center">Programs Created in Collaboration with </h2>
+
+  <div class="container">
+    <div class="row text-center">
+      <div class="col-md-3">
+        <img src="{% static 'img/mc.png' %}" class="img-fluid mt-5" alt="Responsive image">
+      </div>
+      <div class="col-md-3">
+        <img src="{% static 'img/hp.png' %}" class="img-fluid mt-5" alt="Responsive image">
+      </div>
+      <div class="col-md-3">
+        <img src="{% static 'img/mc.png' %}" class="img-fluid mt-5" alt="Responsive image">
+      </div>
+      <div class="col-md-3">
+        <img src="{% static 'img/hp.png' %}" class="img-fluid mt-5" alt="Responsive image">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Carousel YouTube Video Functionality -->
+<script>
+
+  $(document).ready(function () {
+    $('#carouselExampleCaptions').on('slide.bs.carousel', function (event) {
+      players[event.from].pauseVideo();
+    });
+    $('.carousel-control-prev').on('click', function () {
+      $('#carouselExampleCaptions').carousel('prev');
+    });
+    $('.carousel-control-next').on('click', function () {
+      $('#carouselExampleCaptions').carousel('next');
+    });
+  });
+  var tag = document.createElement('script');
+  tag.src = "https://www.youtube.com/iframe_api";
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+  var players = [];
+  function onYouTubeIframeAPIReady() {
+    var allMovieIframes = document.getElementById("carouselExampleCaptions").getElementsByTagName('iframe');
+    console.log(allMovieIframes);
+    for (currentIFrame of allMovieIframes) {
+      players.push(new YT.Player(
+        currentIFrame.id
+      ));
+      console.log(players);
+    }
+  }
+</script>
+
+<!-- Header script  -->
+<script src="{% static 'js/header-fixed.js' %}"></script>
+{% endblock %}

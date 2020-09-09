@@ -1,0 +1,171 @@
+{% extends "quizbase.html" %}
+{% load i18n%}
+
+{% load quiz_tags %}
+
+{% block title %} {{ quiz.title }} {% endblock %}
+{% block description %} {{ quiz.title }} - {{ quiz.description }} {% endblock %}
+
+{% block content %}
+
+<!--<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+<div id="div1" style="display:none;">
+hide
+</div>
+
+<script>
+$(function() {
+    setTimeout(function() {
+            $('#div1').show();
+    }, 1000);
+});
+</script>
+<div><span id="timer" onclick="onClick()">{{quiz.time}}</span>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+function onClick(){
+	$.ajax({
+		url:"{% url 'lms:timer' %}",
+		success: function(data) {
+			// body...
+			alert(data);
+		}
+	})
+}
+</script></div>"""-->
+<div id="time">
+
+</div>
+<script type="text/javascript">
+	function startTimer(duration, display) {
+var timer = duration, minutes, seconds;
+setInterval(function () {
+    minutes = parseInt(timer / 60, 10)
+    seconds = parseInt(timer % 60, 10);
+
+    minutes = minutes < 10 ? "0" + minutes : minutes;
+    seconds = seconds < 10 ? "0" + seconds : seconds;
+
+    display.textContent = minutes + " " + " " + seconds;
+
+    if (--timer < 0) {
+        timer = duration;
+    }
+  console.log(parseInt(seconds))
+  window.localStorage.setItem("seconds",seconds)
+  window.localStorage.setItem("minutes",minutes)
+}, 1000);
+}
+
+window.onload = function () {
+  sec  = parseInt(window.localStorage.getItem("seconds"))
+  min = parseInt(window.localStorage.getItem("minutes"))
+ 
+  if(parseInt(min*sec)){
+    var fiveMinutes = (parseInt(min*60)+sec);
+  }else{
+    var fiveMinutes = 60 * 5;
+  }
+    // var fiveMinutes = 60 * 5;
+  display = document.querySelector('#time');
+  startTimer(fiveMinutes, display);
+};
+</script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+
+setInterval(function() {
+	//alert('halo')
+	$.ajax({
+		url:"{% url 'lms:timer' %}",
+		data:{'hour':hour,'minute':minute,'seconds':seconds},
+		success: function(data) {
+			// body...
+			alert(data);
+		}
+	})
+}, 1000);
+</script>
+
+{% if previous.answers %}
+
+  <p class="muted"><small>{% trans "The previous question" %}:</small></p>
+  <p>{{ previous.previous_question }}</p>
+
+  {% if previous.previous_outcome %}
+	<div class="alert alert-success">
+  {% else %}
+	<div class="alert alert-warning">
+  {% endif %}
+  	  <p><small>
+		{% trans "Your answer was" %} </small>
+		<strong>
+		  {{ previous.previous_outcome|yesno:"correct,incorrect" }}
+		</strong>
+	  </p>
+
+	</div>
+
+	{% include 'correct_answer.html' %}
+
+	<p><strong>{% trans "Explanation" %}:</strong></p>
+	<div class="well " style="background-color: #fcf8e3;">
+	  <p>{{ previous.previous_question.explanation }}</p>
+	</div>
+
+	<hr>
+
+{% endif %}
+
+<br />
+
+{% if question %}
+
+{% if progress %}
+<div style="float: right;">
+{% trans "Question" %} {{ progress.0|add:1 }} {% trans "of" %} {{ progress.1 }}
+</div>
+{% endif %}
+
+<p>
+  <small class="muted">{% trans "Question category" %}:</small>
+  <strong>{{ question.category }}</strong>
+</p>
+
+<p class="lead">{{ question.content }}</p>
+
+{% if question.figure %}
+    <img src="{{ question.figure.url }}" alt="{{ question.content }}" />
+{% endif %}
+
+<form action="" method="POST">{% csrf_token %}
+  <input type=hidden name="question_id" value="{{ question.id }}">
+
+  <ul class="list-group">
+
+	{% for answer in form.answers %}
+	  <li class="list-group-item">
+	    {{ answer }}
+	  </li>
+	{% endfor %}
+
+  </ul>
+
+  {% if progress.0|add:1 == progress.1 %}
+    <input type="submit" value={% trans "Submit" %} class="btn btn-outline-success" style="width: 100px" >
+  
+    {% else %}
+    <input type="submit" value={% trans "Next" %} class="btn btn-outline-success" style="width: 100px" >
+    
+    {% endif %}
+    <input type="button" value="Reset" onClick="location.href=location.href" class="btn btn btn-outline-danger" style="width: 100px">
+  
+</form>
+
+{% endif %}
+
+<hr>
+
+
+{% endblock %}

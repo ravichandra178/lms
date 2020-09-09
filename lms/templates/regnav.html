@@ -1,0 +1,138 @@
+{% load static %}
+
+<header id="headerSection" class="sticky-top">
+    <!-- Top Menu  -->
+
+    <div class="container-fluid py-1">
+
+        <a href="{% url 'lms:index' %}"> <img src="{% static 'img/headlogo.jpg' %}" class="w-100 d-none d-sm-block"></a>
+        <a href="{% url 'lms:index' %}"> <img src="{% static 'img/mobilehead.jpg' %}"
+                class="w-100 d-block d-sm-none"></a>
+    </div>
+
+    <!-- Secondary Mobile Menu  -->
+    <nav class="navbar sticky-top mobile-menu-height d-flex flex-row no-gutters align-items-center justify-content-between"
+        id="mobileMenu">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mobileMenuItems"
+            aria-controls="mobileMenuItems" aria-expanded="false" aria-lable="Toggle Navigation">
+            <span class=""><i class="fas fa-bars fa-1x"></i></span>
+        </button>
+        <div class="" id="searchBarMobile">
+            <div class="input-group" id="searchGroup">
+                <input type="text" class="form-control" placeholder="Search.." aria-label="Search"
+                    aria-describedby="searchIcon">
+                <div class="input-group-append">
+                    <span class="input-group-text" id="searchIcon">
+                        <i class="fas fa-search"></i>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="collapse navbar-collapse py-3" id="mobileMenuItems">
+            <h5>Hi, {{request.user.username}}</h5>
+            <hr>
+            <ul class="navbar-nav">
+                <li class="nav-item active"> <a class="nav-link" href="/mycourses.html">My Courses </a>
+                </li>
+                <li class="nav-item active"> <a class="nav-link" href="/mycourses.html">My Cart</a>
+                </li>
+                <li class="nav-item active"> <a class="nav-link" href="/mycourses.html">Profile</a>
+                </li>
+                <li class="nav-item active"> <a class="nav-link" href="/mycourses.html">Settings</a>
+                </li>
+                <li class="nav-item active"> <a class="nav-link" href="/index.html">Home </a> </li>
+                <li class="nav-item"><a class="nav-link" href="#"> About </a></li>
+                <li class="nav-item"><a class="nav-link" href="/all-courses.html"> Courses </a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown">Category 1</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="course.html"> Course 1</a></li>
+                        <li><a class="dropdown-item" href="course.html"> Course 2 </a></li>
+                    </ul>
+                </li>
+                <hr>
+                <li class="nav-item active"> <a class="nav-link" href="/index.html">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- Secondary Menu  -->
+    <nav class="navbar navbar-expand-lg navbar-dark  main-menu" id="desktopMenu">
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
+            aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse " id="navbarTogglerDemo01">
+
+            <div class="dropdown">
+                <a class="dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
+                    <img src="{% static 'img/cat01.png' %}" class="img-fluid"
+                        alt="Responsive image">&nbsp;&nbsp;Categories
+                </a>
+                <ul class="dropdown-menu multi-level mt-2" role="menu" aria-labelledby="dropdownMenu">
+                    {% for i in category %}
+
+
+                    <li class="dropdown-submenu">
+                        <a class="dropdown-item" tabindex="-1" href="#">{{i.category}}</a>
+                        <ul class="dropdown-menu">
+                            {% for j in i.course_set.all %}
+                            <li class="dropdown-item"><a tabindex="-1"
+                                    href="{% url 'lms:coursedetail' j.slug %}">{{j.title}}</a>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+
+            <form class="form-inline pad" action="{% url 'lms:allcourses' %}" method='POST' value='{{request.POST.q}}'>
+                {% csrf_token %}
+                <div class="input-group">
+
+                    &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" class="form-control mysearch" name='q'
+                        value='{{request.POST.q}}' placeholder="What do you want to learn ?" aria-label="Username"
+                        aria-describedby="basic-addon1">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1" type="submit"><i class="fa fa-search"
+                                style="font-size:20px"></i></span>
+                    </div>
+                </div>
+            </form>
+
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'lms:index' %}">Home<span class="sr-only"></span></a>
+                </li>
+
+
+            </ul>
+            <i class="fa fa-shopping-cart" style="font-size:28px;color:white"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <div class="dropdown" id="desktopProfile">
+
+                <a href="" class="dropdown show" id="profileMenu" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
+                    <div class="profile-icon">
+                        <h5 class="m-0">{{request.user.username|slice:'1'}}</h5>
+                    </div>
+                </a>
+                <div class="dropdown-menu profile-menu-items" aria-labelledby="profileMenu">
+                    <a href="{% url 'authentication:profile' %}" class="dropdown-item"><span
+                            style="color: #ff9f00;">{{request.user.username}}</span></a>
+                    <a href="{% url 'lms:mycourses' %}" class="dropdown-item">My Courses</a>
+                    <a href="#" class="dropdown-item">My Cart</a>
+                    <a href="{% url 'authentication:profile' %}" class="dropdown-item">Profile</a>
+                    <a href="{% url 'authentication:update' request.user.slug %}" class="dropdown-item">Edit Profile</a>
+                    <hr>
+                    <a href="{% url 'auth_logout' %}" class="dropdown-item">Log Out</a>
+                </div>
+            </div>
+
+        </div>
+    </nav>
+</header>

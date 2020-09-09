@@ -1,0 +1,171 @@
+$bg:#fff;
+$border:#abb7b7;
+$pill-colr:#95a5a6;
+$img-bg:#eeeeee;
+$pill-text:#446cb3;
+$jumbo:#34495e;
+$test:red;
+$test1:green;
+*{
+    box-sizing: border-box;
+    margin: 0;
+    top: 0;
+    // border: 1px solid $test;
+    input[type="text"]:disabled{
+        background-color: $bg;
+    }
+}
+.row{
+    background-color: $bg;
+    margin-top: 20px;
+}
+.side-bar{
+    padding-bottom: 5%;
+    .nav{
+        .nav-link{
+                background-color: $bg;
+                color: $pill-text;
+            .active{
+                    background-color: $pill-colr !important;
+                    color: $bg !important;
+                }
+            }
+        }
+        .nav-link:hover{
+            background-color: $pill-colr !important;
+            color: $bg !important;
+        }
+        .nav-color{
+            background-color: $pill-colr !important;
+            color: $bg !important;
+        }
+    }
+    @media screen and (min-width:480px){
+        .side-bar{
+            border-top: 1px solid $border;
+            border-left: 1px solid $border;
+            border-bottom: 1px solid $border;
+        }
+    }
+    .usr-pic{
+        margin: 10px auto;
+        text-align: center;
+        img{
+            border: 2px solid $border;
+            border-radius: 70%;
+        }
+        h6{
+            text-transform: capitalize;
+            margin: 10px 2px;
+        }
+       }
+
+.main-section{
+    border: 1px solid $border;
+}
+.main-section{
+    // display: flex;
+    // align-items: center;
+    .heading{
+        border-bottom: 1px solid $border;
+        margin: 0 auto;
+        text-align: center;   
+    }
+    .basics-form{
+        margin: 0 auto;
+        .content{
+            margin: 0 auto;
+        }
+        .inner-section{
+            border-top: 1px solid $border;
+        }
+    }
+    .photo-form{
+        .img-preview-wapper{
+            border: 1px solid $pill-colr;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            margin-bottom: 2%;
+            .img-preview{
+                background-color: $img-bg;
+            }
+        }
+        .inner-section{
+            border-top: 1px solid $border;
+        }
+    }
+    .account-form{
+        .form-control{
+            .disabled{
+                background-color: $bg;
+            }
+
+        }
+        .inner-section{
+            border-top: 1px solid $border;
+        }
+    }
+    .payment-form{  
+        .inner-section{
+            border-top: 1px solid $border;
+        }
+        .content-payment{
+                padding: 1% 1%;
+                border: 1px solid $border;
+        }
+    }
+    .privacy-form{
+        .content-privacy{
+            padding: 1% 1%;
+            border: 1px solid $border;
+        }
+        .inner-section{
+            border-top: 1px solid $border;
+        }
+        
+    }
+    .notification-form{
+        .content-notification{
+            .form-check{
+                padding: 0% 10%;
+                border: 1px solid $border;
+            }
+            .inner-section{
+                border-top: 1px solid $border;
+            }
+        }
+        .inner-section{
+            border-top: 1px solid $border;
+        }
+    }
+}
+.basics-form{
+    p{
+        color: $pill-text;
+        font-size: 0.7em;
+    }
+}
+.jumbotron{
+    background-color: $jumbo!important;
+    color: $bg!important;
+}
+.container{
+    .profile-pic{
+        img{
+            border: 2px solid $border;
+            border-radius: 70%;
+        }
+    }
+}
+.courses-tab{
+    background-color: $img-bg;
+}
+
+// Button Styling 
+.profile-button{
+    background-color: #247CE8 !important;
+    color: white !important;
+}
+.tab-pane{
+    padding-top: 20px;
+}

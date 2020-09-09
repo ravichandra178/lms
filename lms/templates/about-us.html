@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LMS Course Page</title>
+  <link rel="stylesheet" href="{% static 'about.css' %}"/>
+  <link rel="stylesheet" href="{% static 'style.css' %}">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400;0,700;1,400;1,700&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+    rel="stylesheet">
+
+
+
+{% endblock %}
+
+
+{% block content %}
+
+ 
+
+  <!-- Intro Section  -->
+  <section class="auboutIntro py-2 sectionPadding">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-6">
+          <h3>About Organization</h3>
+          <p>The Govt. of AP has formed 7 different Missions to achieve double digit growth for the state and to make AP among the most developed state in the country. Among these, the Knowledge and Skills Mission has been formed to provide trained and skilled manpower to all other Missions. To bring the faster execution State Government Andhra Pradesh has established The Department of Skill Development and Training has been further created to coordinate and synergize skilling efforts of all departments. Under which APSSDC is formed.</p>
+        </div>
+        <div class="col-md-6 text-center">
+            <img src="{% static 'img/aboutimg.jpg' %}" alt="" class="img-fluid">
+        </div>
+      </div>
+       <div class="row">
+        <div class="col-md-6 text-center">
+            <img src="{% static 'img/aboutimg.jpg' %}" alt="" class="img-fluid">
+        </div>
+        <div class="col-md-6">
+          <h3>Context</h3>
+          <p>To target 20 million people in AP in next 15 years towards skilling and entrepreneurship to meet skilled human power demands of all Missions and shape AP as the skilled-workforce and knowledge hub for the world.</p>
+        </div>
+        
+      </div>
+       <div class="row">
+        <div class="col-md-6 text-center">
+            <img src="{% static 'img/aboutimg.jpg' %}" alt="" class="img-fluid">
+        </div>
+        <div class="col-md-6">
+          <h3>Context</h3>
+          <p>To target 20 million people in AP in next 15 years towards skilling and entrepreneurship to meet skilled human power demands of all Missions and shape AP as the skilled-workforce and knowledge hub for the world.</p>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+        {% endblock %}
